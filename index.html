@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- para permitir exibição em IOS de acordo com documentação do a-frame-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Bibliotecas que precisam ser importadas para usar Mindar com A-frame -->
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script defer src="./assets/scripts/index.js"></script>
+    <title>My Business Card - Jane Doe</title>
+    <link rel="stylesheet" href="assets/styles/index.css" />
+  </head>
+
+  <body>
+
+    <!-- Image de exemplo -->
+    <div id="example-scanning-overlay" class="hidden">
+        <div class="inner">
+          <img src="./assets/images/target/businessCard.png" />
+          <div class="scanline"></div>
+        </div>
+      </div>
+
+    <!-- Construir a cena usando a tag a-scene do a-frame 
+        (objeto raiz global = todas as entidades estão dentro da cena ) -->
+    <a-scene
+      mindar-image="imageTargetSrc: ./assets/targets/target.mind; filterMinCF:0.001; filterBeta: 0.09; uiScanning: #example-scanning-overlay"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <!-- Carregamos os assets que serão usados na experiencia -->
+      <a-assets>
+        <img id="perfil" src="./assets/images/profile/perfil.jpg" />
+        <img id="businessCard" src="./assets/images/target/businessCard.png" />
+
+        <img id="icon_github" src="./assets/images/icons/icon_github.png" />
+        <img id="icon_linkedin" src="./assets/images/icons/icon_linkedin.png" />
+        <img id="icon_twitter" src="./assets/images/icons/icon_twitter.png" />
+        <img id="icon_web" src="./assets/images/icons/icon_web.png" />
+        <img id="icon_email" src="./assets/images/icons/icon_email.png" />
+      </a-assets>
+      
+      <a-camera
+        position="0 0 0"
+        look-controls="enabled: false"
+        cursor="fuse: false; rayOrigin: mouse;"
+        raycaster=" far: 10000; objects: .clickable;"
+      ></a-camera>
+
+      <!-- Colocamos os conteudos da aplicação aqui 
+            mindar-image-target é o atributo que permite inserir a imagem 
+            targetIndex: 0, n = se houver mais de um target no arquivo .mind compilado -->
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <!-- Imagens do cartão e da pessoa -->
+        <a-entity>
+            <a-image
+            id="card"
+            position="-0.0 0.00427 -0.07243"
+            height="0.552"
+            width="1"
+            src="#businessCard"
+            ></a-image>
+
+            <a-image
+            id="foto-perfil"
+            position="0.89553 0.03439 -0.04426"
+            height="0.15"
+            width="0.15"
+            src="#perfil"
+            scale="4.2 4.2 4.2"
+            ></a-image>
+
+        </a-entity>
+
+        <!-- Botões -->
+        <a-entity position="0.065 -0.002 -0.004">
+          <a-image
+            id="github-button"
+            class="clickable"
+            position="-0.52361 -0.4575 -0.04426"
+            height="0.15"
+            width="0.15"
+            src="#icon_github"
+            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
+          >
+          </a-image>
+
+          <a-image
+            id="linkedin-button"
+            class="clickable"
+            position="-0.30772 -0.4575 -0.04426"
+            height="0.15"
+            width="0.15"
+            src="#icon_linkedin"
+            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
+          >
+          </a-image>
+          <a-image
+            id="twitter-button"
+            class="clickable"
+            position="-0.07819 -0.4575 -0.04426"
+            height="0.15"
+            width="0.15"
+            src="#icon_twitter"
+            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
+          >
+          </a-image>
+          <a-image
+            id="email-button"
+            class="clickable"
+            position="0.16583 -0.4575 -0.04426"
+            height="0.15"
+            width="0.15"
+            src="#icon_email"
+            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
+          >
+          </a-image>
+          <a-image
+            id="web-button"
+            class="clickable"
+            position="0.40564 -0.4575 -0.04426"
+            height="0.15"
+            width="0.15"
+            src="#icon_web"
+            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
+          >
+          </a-image>
+        </a-entity>
+      </a-entity>
+      
+    </a-scene>
+  </body>
+</html>
