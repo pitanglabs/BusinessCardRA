@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script defer src="./assets/scripts/index.js"></script>
     <title>My Business Card - Jane Doe</title>
     <link rel="stylesheet" href="assets/styles/index.css" />
@@ -21,7 +20,7 @@
     <!-- Image de exemplo -->
     <div id="example-scanning-overlay" class="hidden">
         <div class="inner">
-          <img src="./assets/images/target/businessCard.png" />
+          <img src="./assets/target/businessCard.png" />
           <div class="scanline"></div>
         </div>
       </div>
@@ -29,7 +28,7 @@
     <!-- Construir a cena usando a tag a-scene do a-frame 
         (objeto raiz global = todas as entidades estão dentro da cena ) -->
     <a-scene
-      mindar-image="imageTargetSrc: ./assets/targets/target.mind; filterMinCF:0.001; filterBeta: 0.09; uiScanning: #example-scanning-overlay"
+      mindar-image="imageTargetSrc: ./assets/target/target.mind; filterMinCF:0.001; filterBeta: 0.09; uiScanning: #example-scanning-overlay"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -37,8 +36,8 @@
     >
       <!-- Carregamos os assets que serão usados na experiencia -->
       <a-assets>
-        <img id="perfil" src="./assets/images/profile/perfil.jpg" />
-        <img id="businessCard" src="./assets/images/target/businessCard.png" />
+        <img id="perfil" src="./assets/images/profile/perfil.png" />
+        <img id="businessCard" src="./assets/target/businessCard.png" />
 
         <img id="icon_github" src="./assets/images/icons/icon_github.png" />
         <img id="icon_linkedin" src="./assets/images/icons/icon_linkedin.png" />
