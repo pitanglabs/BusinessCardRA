@@ -6,22 +6,22 @@ const btnWebsite = document.querySelector("#web-button");
 
 btnGithub.addEventListener('click', () => {
     console.log('hello');
-    window.open('https://github.com/', '_blank');
+    window.open('https://github.com/pitanglabs', '_blank');
 });
 
 btnLinkedin.addEventListener('click', () => {
-    window.open('https://github.com/', '_blank');
+    window.open('https://linkedin.com/in/', '_blank');
 });
 
 btnTwitter.addEventListener('click', () => {
-    window.open('https://github.com/', '_blank');
+    window.open('https://twitter.com/', '_blank');
 });
 
 
 btnEmail.addEventListener('click', () => {
-    window.open('https://github.com/', '_blank');
+    window.open('https://mail.google.com/mail/u/0/', '_blank');
 });
 
 btnWebsite.addEventListener('click', () => {
-    window.open('https://github.com/', '_blank');
+    window.open('http://google.com/', '_blank');
 });
