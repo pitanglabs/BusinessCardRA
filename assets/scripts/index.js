@@ -5,7 +5,6 @@ const btnEmail = document.querySelector("#email-button");
 const btnWebsite = document.querySelector("#web-button");
 
 btnGithub.addEventListener('click', () => {
-    console.log('hello');
     window.open('https://github.com/pitanglabs', '_blank');
 });
 
