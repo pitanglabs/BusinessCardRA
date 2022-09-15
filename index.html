@@ -17,7 +17,7 @@
 
   <body>
 
-    <!-- Image de exemplo -->
+    <!-- Scanner Customizado -->
     <div id="example-scanning-overlay" class="hidden">
         <div class="inner">
           <img src="./assets/target/businessCard.png" />
@@ -25,10 +25,9 @@
         </div>
       </div>
 
-    <!-- Construir a cena usando a tag a-scene do a-frame 
-        (objeto raiz global = todas as entidades estão dentro da cena ) -->
+    <!-- Construir a cena -->
     <a-scene
-      mindar-image="imageTargetSrc: ./assets/target/target.mind; filterMinCF:0.001; filterBeta: 0.09; uiScanning: #example-scanning-overlay"
+      mindar-image="imageTargetSrc: ./assets/target/target2.mind; filterMinCF:0.001; filterBeta: 0.09; uiScanning: #example-scanning-overlay"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -52,10 +51,6 @@
         cursor="fuse: false; rayOrigin: mouse;"
         raycaster=" far: 10000; objects: .clickable;"
       ></a-camera>
-
-      <!-- Colocamos os conteudos da aplicação aqui 
-            mindar-image-target é o atributo que permite inserir a imagem 
-            targetIndex: 0, n = se houver mais de um target no arquivo .mind compilado -->
 
       <a-entity mindar-image-target="targetIndex: 0">
         <!-- Imagens do cartão e da pessoa -->

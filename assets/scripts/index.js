@@ -18,9 +18,9 @@ btnTwitter.addEventListener('click', () => {
 
 
 btnEmail.addEventListener('click', () => {
-    window.open('https://mail.google.com/mail/u/0/', '_blank');
+    window.open('mailto:labs-l@pitang.com');
 });
 
 btnWebsite.addEventListener('click', () => {
-    window.open('http://google.com/', '_blank');
+    window.open('https://www.pitang.com/', '_blank');
 });
