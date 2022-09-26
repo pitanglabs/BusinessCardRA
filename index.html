@@ -1,135 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- para permitir exibição em IOS de acordo com documentação do a-frame-->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <!-- Bibliotecas que precisam ser importadas para usar Mindar com A-frame -->
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
-    <script defer src="./assets/scripts/index.js"></script>
-    <title>My Business Card - Jane Doe</title>
-    <link rel="stylesheet" href="assets/styles/index.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- para permitir exibição em IOS de acordo com documentação do a-frame-->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- Bibliotecas que precisam ser importadas para usar Mindar com A-frame -->
+  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+  <script defer src="./assets/scripts/index.js"></script>
+  <title>My Business Card - Jane Doe</title>
+  <link rel="stylesheet" href="assets/styles/index.css" />
+</head>
 
-    <!-- Scanner Customizado -->
-    <div id="example-scanning-overlay" class="hidden">
-        <div class="inner">
-          <img src="./assets/target/businessCard.png" />
-          <div class="scanline"></div>
-        </div>
-      </div>
+<body>
 
-    <!-- Construir a cena -->
-    <a-scene
-      mindar-image="imageTargetSrc: ./assets/target/target.mind; filterMinCF:0.001; filterBeta: 0.09; uiScanning: #example-scanning-overlay"
-      color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false"
-    >
-      <!-- Carregamos os assets que serão usados na experiencia -->
-      <a-assets>
-        <img id="perfil" src="./assets/images/profile/perfil.png" />
-        <img id="businessCard" src="./assets/target/businessCard.png" />
+  <!-- Scanner Customizado -->
+  <div id="example-scanning-overlay" class="hidden">
+    <div class="inner">
+      <img src="./assets/target/businessCard.png" />
+      <div class="scanline"></div>
+    </div>
+  </div>
 
-        <img id="icon_github" src="./assets/images/icons/icon_github.png" />
-        <img id="icon_linkedin" src="./assets/images/icons/icon_linkedin.png" />
-        <img id="icon_twitter" src="./assets/images/icons/icon_twitter.png" />
-        <img id="icon_web" src="./assets/images/icons/icon_web.png" />
-        <img id="icon_email" src="./assets/images/icons/icon_email.png" />
-      </a-assets>
-      
-      <a-camera
-        position="0 0 0"
-        look-controls="enabled: false"
-        cursor="fuse: false; rayOrigin: mouse;"
-        raycaster=" far: 10000; objects: .clickable;"
-      ></a-camera>
+  <!-- Construir a cena -->
+  <a-scene
+    mindar-image="imageTargetSrc: ./assets/target/target2.mind; filterMinCF:0.001; filterBeta: 0.09; uiScanning: #example-scanning-overlay"
+    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <!-- Carregamos os assets que serão usados na experiencia -->
+    <a-assets>
+      <img id="perfil" src="./assets/images/profile/perfil.png" />
+      <img id="businessCard" src="./assets/target/businessCard.png" />
 
-      <a-entity mindar-image-target="targetIndex: 0">
-        <!-- Imagens do cartão e da pessoa -->
-        <a-entity>
-            <a-image
-            id="card"
-            position="-0.0 0.00427 -0.07243"
-            height="0.552"
-            width="1"
-            src="#businessCard"
-            ></a-image>
+      <img id="icon_github" src="./assets/images/icons/icon_github.png" />
+      <img id="icon_linkedin" src="./assets/images/icons/icon_linkedin.png" />
+      <img id="icon_twitter" src="./assets/images/icons/icon_twitter.png" />
+      <img id="icon_web" src="./assets/images/icons/icon_web.png" />
+      <img id="icon_email" src="./assets/images/icons/icon_email.png" />
+    </a-assets>
 
-            <a-image
-            id="foto-perfil"
-            position="0.850 0.0 -0.04426"
-            height="0.15"
-            width="0.15"
-            src="#perfil"
-            scale="4.2 4.2 4.2"
-            ></a-image>
+    <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
+      raycaster=" far: 10000; objects: .clickable;"></a-camera>
 
-        </a-entity>
+    <a-entity mindar-image-target="targetIndex: 0">
+      <!-- Imagens do cartão e da pessoa -->
+      <a-entity>
+        <a-image id="card" position="-0.0 0.00427 -0.07243" height="0.552" width="1" src="#businessCard"></a-image>
 
-        <!-- Botões -->
-        <a-entity position="0.065 -0.002 -0.004">
-          <a-image
-            id="github-button"
-            class="clickable"
-            position="-0.52361 -0.4575 -0.04426"
-            height="0.15"
-            width="0.15"
-            src="#icon_github"
-            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
-          >
-          </a-image>
+        <a-image id="foto-perfil" position="0.850 0.0 -0.04426" height="0.15" width="0.15" src="#perfil"
+          scale="4.2 4.2 4.2"></a-image>
 
-          <a-image
-            id="linkedin-button"
-            class="clickable"
-            position="-0.30772 -0.4575 -0.04426"
-            height="0.15"
-            width="0.15"
-            src="#icon_linkedin"
-            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
-          >
-          </a-image>
-          <a-image
-            id="twitter-button"
-            class="clickable"
-            position="-0.07819 -0.4575 -0.04426"
-            height="0.15"
-            width="0.15"
-            src="#icon_twitter"
-            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
-          >
-          </a-image>
-          <a-image
-            id="email-button"
-            class="clickable"
-            position="0.16583 -0.4575 -0.04426"
-            height="0.15"
-            width="0.15"
-            src="#icon_email"
-            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
-          >
-          </a-image>
-          <a-image
-            id="web-button"
-            class="clickable"
-            position="0.40564 -0.4575 -0.04426"
-            height="0.15"
-            width="0.15"
-            src="#icon_web"
-            animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate"
-          >
-          </a-image>
-        </a-entity>
       </a-entity>
-      
-    </a-scene>
-  </body>
+
+      <!-- Botões -->
+      <a-entity position="0.065 -0.002 -0.004">
+        <a-image id="github-button" class="clickable" position="-0.52361 -0.4575 -0.04426" height="0.15" width="0.15"
+          src="#icon_github"
+          animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-image>
+
+        <a-image id="linkedin-button" class="clickable" position="-0.30772 -0.4575 -0.04426" height="0.15" width="0.15"
+          src="#icon_linkedin"
+          animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-image>
+        <a-image id="twitter-button" class="clickable" position="-0.07819 -0.4575 -0.04426" height="0.15" width="0.15"
+          src="#icon_twitter"
+          animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-image>
+        <a-image id="email-button" class="clickable" position="0.16583 -0.4575 -0.04426" height="0.15" width="0.15"
+          src="#icon_email"
+          animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-image>
+        <a-image id="web-button" class="clickable" position="0.40564 -0.4575 -0.04426" height="0.15" width="0.15"
+          src="#icon_web"
+          animation="property: scale; to: 1.1 1.1 1.1; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-image>
+      </a-entity>
+    </a-entity>
+
+  </a-scene>
+</body>
+
 </html>
